@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BoltScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource sound;
+
+    public void Interact()
     {
-        
+        sound.Play();
+        Invoke("disableObject", 0.5f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void disableObject()
     {
-        
+        gameObject.SetActive(false);
     }
 }
