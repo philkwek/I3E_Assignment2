@@ -24,7 +24,8 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
                         notification.Play(); //Objective Unlock
                                             //add code for locked door
                     }                    else                    {                        Debug.Log("Door is still locked");                        //add code for locked door sound                    }                }            }            if (hitInfo.collider.CompareTag("island_jerry"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {                     island_fuel = true;
-                    //add code for jerry pickup sound
+                    hitInfo.transform.GetComponent<JerryScript>().Interact();
+                    
                     if (island_enginepart == true)
                     {
                         Objective5.SetActive(true);
@@ -36,12 +37,14 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
             {
                 raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {
                     boat_engine_refueled = true;
-                    //hitInfo.transform.getComponent
+                    
                     //add code for jerry pickup sound
 
                     
                 }
-            }            if (hitInfo.collider.CompareTag("island_propeller"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {                    Debug.Log("Door Unlocked");                    island_enginepart = true;                    //add code for propeller pickup sound                }                if (island_fuel == true)
+            }            if (hitInfo.collider.CompareTag("island_propeller"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {                    Debug.Log("Door Unlocked");                    island_enginepart = true;                    hitInfo.transform.GetComponent<PropellerScript>().Interact();
+                    //add code for propeller pickup sound
+                }                if (island_fuel == true)
                 {
                     Objective5.SetActive(true);
                     notification.Play();
