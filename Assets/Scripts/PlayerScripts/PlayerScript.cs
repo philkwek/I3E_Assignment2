@@ -3,7 +3,8 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         {
             isPhone = !isPhone;
             phone.SetBool("ePressed", true);
-            objectiveUI.SetBool("Checked", true);
+            objectiveUI.ResetTrigger("ActivateObj");
+            objectiveUI.SetTrigger("ActivateObj");
         }
 
         if (isPhone)
@@ -16,11 +17,12 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
             
         }        if (Physics.Raycast(playerCamera.transform.position, fwd, out hitInfo, InteractionDistance, layerMaskInteract.value))        {            if (hitInfo.collider.CompareTag("basement_chest"))             {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                //crosshair change to indicate obj that can be picked up                if (Input.GetKeyDown(KeyCode.E))                {                    Debug.Log("Open Basement Chest");                    hitInfo.transform.GetComponent<BasementChest>().Interact();                    //add code for sound                }            }            if (hitInfo.collider.CompareTag("basement_key"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                //crosshair change to indicate obj that can be picked up                if (Input.GetKeyDown(KeyCode.E))                {                    Debug.Log("Took Basement Key");                    basement_key = true;                    hitInfo.transform.GetComponent<BasementKey>().BasementKeyPickup();
 
-                }            }            if (hitInfo.collider.CompareTag("basement_door"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                //crosshair change to indicate obj that can be picked up                if (Input.GetKeyDown(KeyCode.E))                {                    if (basement_key == true)                    {                        Debug.Log("Door Unlocked");                        hitInfo.transform.GetComponent<BasementDoor>().Interact();                        Objective2.SetActive(true);                        notification.Play();                        objectiveUI.SetBool("ObjectiveUpdate", true);                        objectiveUI.SetBool("Checked", false);                    }                    else                    {                        Debug.Log("Door is still locked");                        //add code for locked door sound                    }                                    }            }            if (hitInfo.collider.CompareTag("house_bolt"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                                if (Input.GetKeyDown(KeyCode.E))                {                    Debug.Log("Took House Bold Cutters");                    raycastedObj.SetActive(false);                    house_bolt = true;                    //add code for sound                }            }            if (hitInfo.collider.CompareTag("house_door"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                //crosshair change to indicate obj that can be picked up                if (Input.GetKeyDown(KeyCode.E))                {                    if (house_bolt == true)                    {                        Debug.Log("Door Unlocked");                        hitInfo.transform.GetComponent<HouseDoorScript>().Interact();
+                }            }            if (hitInfo.collider.CompareTag("basement_door"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                //crosshair change to indicate obj that can be picked up                if (Input.GetKeyDown(KeyCode.E))                {                    if (basement_key == true)                    {                        Debug.Log("Door Unlocked");                        hitInfo.transform.GetComponent<BasementDoor>().Interact();                        Objective2.SetActive(true);                        notification.Play();                        objectiveUI.ResetTrigger("ActivateObj");                        objectiveUI.SetTrigger("ActivateObj");                        //objectiveUI.SetBool("Checked", false);                    }                    else                    {                        Debug.Log("Door is still locked");                        //add code for locked door sound                    }                                    }            }            if (hitInfo.collider.CompareTag("house_bolt"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                                if (Input.GetKeyDown(KeyCode.E))                {                    Debug.Log("Took House Bold Cutters");                    raycastedObj.SetActive(false);                    house_bolt = true;                    //add code for sound                }            }            if (hitInfo.collider.CompareTag("house_door"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                //crosshair change to indicate obj that can be picked up                if (Input.GetKeyDown(KeyCode.E))                {                    if (house_bolt == true)                    {                        Debug.Log("Door Unlocked");                        hitInfo.transform.GetComponent<HouseDoorScript>().Interact();
                         //objective update
                         Objective3.SetActive(true);
-                        objectiveUI.SetBool("ObjectiveUpdate", true);
-                        objectiveUI.SetBool("Checked", false);
+                        objectiveUI.ResetTrigger("ActivateObj");
+                        objectiveUI.SetTrigger("ActivateObj");
+                        //objectiveUI.SetBool("Checked", false);
                         notification.Play(); //Objective Unlock
                                             //add code for locked door
                     }                    else                    {                        Debug.Log("Door is still locked");                        //add code for locked door sound                    }                }            }            if (hitInfo.collider.CompareTag("island_jerry"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {                     island_fuel = true;
@@ -30,8 +32,9 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
                     {
                         Objective5.SetActive(true);
                         notification.Play();
-                        objectiveUI.SetBool("ObjectiveUpdate", true);
-                        objectiveUI.SetBool("Checked", false);
+                        objectiveUI.ResetTrigger("ActivateObj");
+                        objectiveUI.SetTrigger("ActivateObj");
+                        //objectiveUI.SetBool("Checked", false);
                         //play ringtone
                     }                }            }            if (hitInfo.collider.CompareTag("boat_engine"))
             {
@@ -42,20 +45,21 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
 
                     
                 }
-            }            if (hitInfo.collider.CompareTag("island_propeller"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {                    Debug.Log("Door Unlocked");                    island_enginepart = true;                    hitInfo.transform.GetComponent<PropellerScript>().Interact();
+            }            if (hitInfo.collider.CompareTag("island_propeller"))            {                raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {                             island_enginepart = true;                    hitInfo.transform.GetComponent<PropellerScript>().Interact();
                     //add code for propeller pickup sound
                 }                if (island_fuel == true)
                 {
                     Objective5.SetActive(true);
                     notification.Play();
-                    objectiveUI.SetBool("ObjectiveUpdate", true);
-                    objectiveUI.SetBool("Checked", false);
+                    objectiveUI.ResetTrigger("ActivateObj");
+                    objectiveUI.SetTrigger("ActivateObj");
+                    //objectiveUI.SetBool("Checked", false);
                     //play ringtone
                 }            }            if (hitInfo.collider.CompareTag("boat_propeller"))
             {
                 raycastedObj = hitInfo.collider.gameObject;                CrosshairActive();                crosshairStatus = true;                if (Input.GetKeyDown(KeyCode.E))                {
                     boat_engine_fixed = true;
-                    //hitInfo.transform.getComponent
+                    hitInfo.transform.GetComponent<BoatEngineScript>().Interact();
                     //add code for jerry pickup sound
                 }
             }            if (hitInfo.collider.CompareTag("boat"))
@@ -63,8 +67,9 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
                 if (boat_engine_fixed == true && boat_engine_refueled == true)
                 {
                     Objective6.SetActive(true);
-                    objectiveUI.SetBool("ObjectiveUpdate", true);
-                    objectiveUI.SetBool("Checked", false);
+                    objectiveUI.ResetTrigger("ActivateObj");
+                    objectiveUI.SetTrigger("ActivateObj");
+                    //objectiveUI.SetBool("Checked", false);
                     //enter boat code
                 }
             }        }        else if (crosshairStatus == true)        {            CrosshairNormal();            crosshairStatus = false;            //crosshair normal        }    }    public void PullPhone()
@@ -78,8 +83,10 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
     {
         Objective4.SetActive(true);
         notification.Play();
-        objectiveUI.SetBool("ObjectiveUpdate", true);
-        objectiveUI.SetBool("Checked", false);
+        objectiveUI.ResetTrigger("ActivateObj");
+        objectiveUI.SetTrigger("ActivateObj");
+        
+        //objectiveUI.SetBool("Checked", false);
         //play ringtone
         //trigger when enter trigger area
     }
