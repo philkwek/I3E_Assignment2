@@ -18,7 +18,7 @@ public class BasementDoorTeleport : MonoBehaviour
             yield return null;
         }
         yield return null;
-        
+
     }
 
     IEnumerator DoFadeOut()
@@ -41,11 +41,6 @@ public class BasementDoorTeleport : MonoBehaviour
         playerObject.transform.position = teleportTarget.transform.position;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         StartCoroutine(DoFadeIn());
@@ -54,3 +49,4 @@ public class BasementDoorTeleport : MonoBehaviour
         Debug.Log("Teleporting...");
     }
 }
+
