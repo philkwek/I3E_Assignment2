@@ -16,6 +16,7 @@ TagManager:
   - boat
   - dock
   - boat_fuel_tank
+  - phone
   layers:
   - Default
   - TransparentFX

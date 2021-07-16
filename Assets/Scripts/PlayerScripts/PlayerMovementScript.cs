@@ -39,6 +39,7 @@ public class PlayerMovementScript : MonoBehaviour
         stamina_limit = stamina;
         sprint_speed = sprintMultiplier;
         characterCollider = gameObject.GetComponent<CharacterController>();
+
     }
 
 
@@ -50,7 +51,6 @@ public class PlayerMovementScript : MonoBehaviour
         if (isGrounded == true)
         {
             jumpCheck = true;
-            Debug.Log("On Ground");
         }
 
         if (isGrounded && velocity.y < 0)

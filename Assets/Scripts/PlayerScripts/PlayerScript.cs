@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject Objective4;
     public GameObject Objective5;
     public GameObject Objective6;
+    public bool objective6 = false;
 
     public bool basement_key = false; //game checks this bool to see if player can access the next level
     public bool house_bolt = false;
@@ -47,7 +48,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        notification.Play();
     }
 
     private void animateMap()
@@ -58,6 +59,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -110,6 +112,16 @@ public class PlayerScript : MonoBehaviour
 
         if (Physics.Raycast(playerCamera.transform.position, fwd, out hitInfo, InteractionDistance, layerMaskInteract.value))
         {
+            raycastedObj = hitInfo.collider.gameObject;
+            CrosshairActive();
+            crosshairStatus = true;
+            if (hitInfo.collider.CompareTag("phone"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hitInfo.collider.gameObject.GetComponent<PhonePickup>().Interact();
+                }
+            }
             if (hitInfo.collider.CompareTag("basement_chest")) 
             {
                 raycastedObj = hitInfo.collider.gameObject;
@@ -219,7 +231,7 @@ public class PlayerScript : MonoBehaviour
                 crosshairStatus = true;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                     island_fuel = true;
+                    island_fuel = true;
                     hitInfo.transform.GetComponent<JerryScript>().Interact();
                     
                     if (island_enginepart == true)
@@ -245,8 +257,9 @@ public class PlayerScript : MonoBehaviour
                     hitInfo.collider.gameObject.GetComponent<BoatScript>().Interact();
                 }
 
-                if (boat_engine_fixed == true)
+                if (boat_engine_fixed == true && objective6 == false)
                 {
+                    objective6 = true;
                     Objective6.SetActive(true);
                     notification.Play();
                     objectiveUI.SetBool("ObjectiveUpdate", true);
@@ -279,25 +292,17 @@ public class PlayerScript : MonoBehaviour
             if (hitInfo.collider.CompareTag("boat_propeller"))
             {
                 raycastedObj = hitInfo.collider.gameObject;
-                Debug.Log(raycastedObj.name);
                 CrosshairActive();
                 crosshairStatus = true;
                 if (Input.GetKeyDown(KeyCode.E) && island_enginepart == true)
                 {
                     boat_engine_fixed = true;
-                    if (hitInfo.collider.gameObject != null)
-                    {
-                        hitInfo.collider.gameObject.GetComponent<BoatEngineScript>().Interact();
-                    }
-                    else
-                    {
-                        Debug.Log("Cannot find obj");
-                    }
-                    
+                    hitInfo.collider.gameObject.GetComponent<BoatScript>().Interact();
                 }
 
-                if (boat_engine_refueled == true)
+                if (boat_engine_refueled == true && objective6 == false)
                 {
+                    objective6 = true;
                     Objective6.SetActive(true);
                     notification.Play();
                     objectiveUI.SetBool("ObjectiveUpdate", true);
