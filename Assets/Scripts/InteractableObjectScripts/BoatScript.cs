@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BoatScript : MonoBehaviour
 {
-    public GameObject propeller;
+    //public GameObject propeller;
     public AudioSource sound;
 
     public void Interact()
     {
         sound.Play();
-        propeller.SetActive(true);
+        //propeller.SetActive(true);
     }
 }
