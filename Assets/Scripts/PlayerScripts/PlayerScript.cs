@@ -85,7 +85,8 @@ public class PlayerScript : MonoBehaviour
             //objectiveUI.SetBool("ObjectiveUpdate", true);
             if (isPhone == false)
             {
-                objectiveUI.SetTrigger("UnactivateObj");
+                //objectiveUI.SetTrigger("UnactivateObj");
+                objectiveUI.SetBool("ObjectiveUpdate", false);
             }
         }
 
@@ -151,8 +152,8 @@ public class PlayerScript : MonoBehaviour
                         Objective2.SetActive(true);
                         notification.Play();
                         //objectiveUI.ResetTrigger("ActivateObj");
-                        objectiveUI.SetTrigger("ActivateObj");
-                        //objectiveUI.SetBool("ObjectiveUpdate", true);
+                        //objectiveUI.SetTrigger("ActivateObj");
+                        objectiveUI.SetBool("ObjectiveUpdate", true);
                     }
                     else
                     {
@@ -193,8 +194,8 @@ public class PlayerScript : MonoBehaviour
                         //objective update
                         Objective3.SetActive(true);
                         //objectiveUI.ResetTrigger("ActivateObj");
-                        objectiveUI.SetTrigger("ActivateObj");
-                        //objectiveUI.SetBool("ObjectiveUpdate", true);
+                        //objectiveUI.SetTrigger("ActivateObj");
+                        objectiveUI.SetBool("ObjectiveUpdate", true);
                         notification.Play(); //Objective Unlock
                         activateMap = true;
                                            
@@ -225,8 +226,8 @@ public class PlayerScript : MonoBehaviour
                         Objective5.SetActive(true);
                         notification.Play();
                         //objectiveUI.ResetTrigger("ActivateObj");
-                        objectiveUI.SetTrigger("ActivateObj");
-                        //objectiveUI.SetBool("ObjectiveUpdate", true);
+                        //objectiveUI.SetTrigger("ActivateObj");
+                        objectiveUI.SetBool("ObjectiveUpdate", true);
                         //play ringtone
                     }
                 }
@@ -262,8 +263,8 @@ public class PlayerScript : MonoBehaviour
                     Objective5.SetActive(true);
                     notification.Play();
                     //objectiveUI.ResetTrigger("ActivateObj");
-                    objectiveUI.SetTrigger("ActivateObj");
-                    //objectiveUI.SetBool("ObjectiveUpdate", true);
+                    //objectiveUI.SetTrigger("ActivateObj");
+                    objectiveUI.SetBool("ObjectiveUpdate", true);
                     //play ringtone
                 }
             }
@@ -295,9 +296,9 @@ public class PlayerScript : MonoBehaviour
                 {
                     Objective6.SetActive(true);
                     //objectiveUI.ResetTrigger("ActivateObj");
-                    objectiveUI.SetTrigger("ActivateObj");
+                    //objectiveUI.SetTrigger("ActivateObj");
                     notification.Play();
-                    //objectiveUI.SetBool("ObjectiveUpdate", true);
+                    objectiveUI.SetBool("ObjectiveUpdate", true);
                     //enter boat code
                 }
             }
@@ -339,8 +340,8 @@ public class PlayerScript : MonoBehaviour
         Objective4.SetActive(true);
         notification.Play();
         //objectiveUI.ResetTrigger("ActivateObj");
-        objectiveUI.SetTrigger("ActivateObj");
-        //objectiveUI.SetBool("ObjectiveUpdate", true);
+        //objectiveUI.SetTrigger("ActivateObj");
+        objectiveUI.SetBool("ObjectiveUpdate", true);
         //objectiveUI.SetBool("Checked", false);
         //play ringtone
         //trigger when enter trigger area
