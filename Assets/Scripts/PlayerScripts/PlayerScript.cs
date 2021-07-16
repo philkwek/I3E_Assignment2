@@ -297,7 +297,7 @@ public class PlayerScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && island_enginepart == true)
                 {
                     boat_engine_fixed = true;
-                    hitInfo.collider.gameObject.GetComponent<BoatScript>().Interact();
+                    hitInfo.collider.gameObject.GetComponent<BoatEngineScript>().Interact();
                 }
 
                 if (boat_engine_refueled == true && objective6 == false)
