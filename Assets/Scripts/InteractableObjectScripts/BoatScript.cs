@@ -14,6 +14,9 @@ public class BoatScript : MonoBehaviour
         sound.Play();
         boat.SetTrigger("Start");
         StartCoroutine(DoFadeIn());
+        IEnumerator fadeSound1 = AudioFadeOut.FadeOut(sound, 4f);
+        StartCoroutine(fadeSound1);
+        //StopCoroutine(fadeSound1);
     }
 
     IEnumerator DoFadeIn()
@@ -27,6 +30,27 @@ public class BoatScript : MonoBehaviour
             yield return null;
         }
         yield return null;
+
+    }
+
+    public static class AudioFadeOut
+    {
+
+        public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+        {
+            yield return new WaitForSeconds(12);
+            float startVolume = audioSource.volume;
+
+            while (audioSource.volume > 0)
+            {
+                audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+                yield return null;
+            }
+
+            audioSource.Stop();
+            audioSource.volume = startVolume;
+        }
 
     }
 }
