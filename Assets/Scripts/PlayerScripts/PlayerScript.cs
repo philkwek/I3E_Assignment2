@@ -63,6 +63,10 @@ public class PlayerScript : MonoBehaviour
             //objectiveUI.ResetTrigger("ActivateObj");
             //objectiveUI.SetTrigger("ActivateObj");
             //objectiveUI.SetBool("ObjectiveUpdate", true);
+            if (isPhone == false)
+            {
+                objectiveUI.SetTrigger("UnactivateObj");
+            }
         }
 
         if (isPhone)
@@ -72,7 +76,8 @@ public class PlayerScript : MonoBehaviour
         else
         {
             PocketPhone();
-            objectiveUI.SetBool("ObjectiveUpdate", false);
+            //objectiveUI.SetBool("ObjectiveUpdate", false);
+            
         }
 
         if (Physics.Raycast(playerCamera.transform.position, fwd, out hitInfo, InteractionDistance, layerMaskInteract.value))
@@ -120,8 +125,8 @@ public class PlayerScript : MonoBehaviour
                         Objective2.SetActive(true);
                         notification.Play();
                         //objectiveUI.ResetTrigger("ActivateObj");
-                        //objectiveUI.SetTrigger("ActivateObj");
-                        objectiveUI.SetBool("ObjectiveUpdate", true);
+                        objectiveUI.SetTrigger("ActivateObj");
+                        //objectiveUI.SetBool("ObjectiveUpdate", true);
                     }
                     else
                     {
@@ -162,8 +167,8 @@ public class PlayerScript : MonoBehaviour
                         //objective update
                         Objective3.SetActive(true);
                         //objectiveUI.ResetTrigger("ActivateObj");
-                        //objectiveUI.SetTrigger("ActivateObj");
-                        objectiveUI.SetBool("ObjectiveUpdate", true);
+                        objectiveUI.SetTrigger("ActivateObj");
+                        //objectiveUI.SetBool("ObjectiveUpdate", true);
                         notification.Play(); //Objective Unlock
                                             //add code for locked door
                     }
@@ -193,8 +198,8 @@ public class PlayerScript : MonoBehaviour
                         Objective5.SetActive(true);
                         notification.Play();
                         //objectiveUI.ResetTrigger("ActivateObj");
-                        //objectiveUI.SetTrigger("ActivateObj");
-                        objectiveUI.SetBool("ObjectiveUpdate", true);
+                        objectiveUI.SetTrigger("ActivateObj");
+                        //objectiveUI.SetBool("ObjectiveUpdate", true);
                         //play ringtone
                     }
                 }
@@ -230,8 +235,8 @@ public class PlayerScript : MonoBehaviour
                     Objective5.SetActive(true);
                     notification.Play();
                     //objectiveUI.ResetTrigger("ActivateObj");
-                    //objectiveUI.SetTrigger("ActivateObj");
-                    objectiveUI.SetBool("ObjectiveUpdate", true);
+                    objectiveUI.SetTrigger("ActivateObj");
+                    //objectiveUI.SetBool("ObjectiveUpdate", true);
                     //play ringtone
                 }
             }
@@ -263,8 +268,8 @@ public class PlayerScript : MonoBehaviour
                 {
                     Objective6.SetActive(true);
                     //objectiveUI.ResetTrigger("ActivateObj");
-                    //objectiveUI.SetTrigger("ActivateObj");
-                    objectiveUI.SetBool("ObjectiveUpdate", true);
+                    objectiveUI.SetTrigger("ActivateObj");
+                    //objectiveUI.SetBool("ObjectiveUpdate", true);
                     //enter boat code
                 }
             }
@@ -306,8 +311,8 @@ public class PlayerScript : MonoBehaviour
         Objective4.SetActive(true);
         notification.Play();
         //objectiveUI.ResetTrigger("ActivateObj");
-        //objectiveUI.SetTrigger("ActivateObj");
-        objectiveUI.SetBool("ObjectiveUpdate", true);
+        objectiveUI.SetTrigger("ActivateObj");
+        //objectiveUI.SetBool("ObjectiveUpdate", true);
         //objectiveUI.SetBool("Checked", false);
         //play ringtone
         //trigger when enter trigger area
