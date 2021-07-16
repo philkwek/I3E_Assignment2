@@ -7,11 +7,11 @@ public class HouseDoorTeleport : MonoBehaviour
     public GameObject FadeScene;
     public GameObject playerObject;
     public Transform teleportTarget;
+    public GameObject Map;
 
     IEnumerator DoFadeIn()
     {
         CanvasGroup canvasGroup = FadeScene.GetComponent<CanvasGroup>();
-        Debug.Log(canvasGroup.alpha);
         while (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime;
@@ -47,5 +47,6 @@ public class HouseDoorTeleport : MonoBehaviour
         StartCoroutine(DoFadeOut());
         Invoke("TeleportPlayer", 1.2f);
         Debug.Log("Teleporting...");
+        Map.SetActive(true);
     }
 }

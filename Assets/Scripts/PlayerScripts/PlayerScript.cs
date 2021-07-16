@@ -37,10 +37,11 @@ public class PlayerScript : MonoBehaviour
     public bool boat_engine_refueled = false;
 
     public bool isPhone = false;
-
-
-
-
+    public bool isMap = false;
+    public Animator map;
+    private bool activateMap = false;
+    public GameObject mapObject;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +49,28 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+    private void animateMap()
+    {
+        map.SetBool("MapActivate", true);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            map.SetBool("MapActivate", false);
+            isMap = !isMap;
+
+        }
+        if (isMap)
+        {
+            map.SetBool("MapOpen", true);
+        } else
+        {
+            map.SetBool("MapOpen", false);
+        }
 
         RaycastHit hitInfo;
         Vector3 fwd = playerCamera.transform.TransformDirection(Vector3.forward);
@@ -72,6 +92,12 @@ public class PlayerScript : MonoBehaviour
         if (isPhone)
         {
             PullPhone();
+            if (activateMap == true)
+            {
+                activateMap = false;
+                mapObject.SetActive(true);
+                Invoke("animateMap", 3f);
+            }
         }
         else
         {
@@ -170,7 +196,8 @@ public class PlayerScript : MonoBehaviour
                         objectiveUI.SetTrigger("ActivateObj");
                         //objectiveUI.SetBool("ObjectiveUpdate", true);
                         notification.Play(); //Objective Unlock
-                                            
+                        activateMap = true;
+                                           
                     }
                     else
                     {
@@ -210,7 +237,7 @@ public class PlayerScript : MonoBehaviour
                 raycastedObj = hitInfo.collider.gameObject;
                 CrosshairActive();
                 crosshairStatus = true;
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && island_fuel == true)
                 {
                     boat_engine_refueled = true;
                     hitInfo.collider.gameObject.GetComponent<BoatScript>().Interact();
@@ -247,7 +274,7 @@ public class PlayerScript : MonoBehaviour
                 Debug.Log(raycastedObj.name);
                 CrosshairActive();
                 crosshairStatus = true;
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && island_enginepart == true)
                 {
                     boat_engine_fixed = true;
                     if (hitInfo.collider.gameObject != null)
@@ -269,6 +296,7 @@ public class PlayerScript : MonoBehaviour
                     Objective6.SetActive(true);
                     //objectiveUI.ResetTrigger("ActivateObj");
                     objectiveUI.SetTrigger("ActivateObj");
+                    notification.Play();
                     //objectiveUI.SetBool("ObjectiveUpdate", true);
                     //enter boat code
                 }
