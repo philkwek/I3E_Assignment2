@@ -170,7 +170,7 @@ public class PlayerScript : MonoBehaviour
                         objectiveUI.SetTrigger("ActivateObj");
                         //objectiveUI.SetBool("ObjectiveUpdate", true);
                         notification.Play(); //Objective Unlock
-                                            //add code for locked door
+                                            
                     }
                     else
                     {
