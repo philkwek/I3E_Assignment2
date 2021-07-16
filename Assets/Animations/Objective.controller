@@ -49,6 +49,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: UnactivateObj
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -98,7 +104,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: ActivateObj
+    m_ConditionEvent: ObjectiveUpdate
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3949039878451270180}
@@ -151,7 +157,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3949039878451270180}
-    m_Position: {x: 340, y: 10, z: 0}
+    m_Position: {x: 390, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5071618558079589678}
     m_Position: {x: 411.57983, y: 186.9838, z: 0}

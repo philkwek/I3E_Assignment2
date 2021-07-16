@@ -15,6 +15,7 @@ TagManager:
   - boat_propeller
   - boat
   - dock
+  - boat_fuel_tank
   layers:
   - Default
   - TransparentFX
