@@ -35,6 +35,7 @@ public class PlayerScript : MonoBehaviour
 
     public bool boat_engine_fixed = false;
     public bool boat_engine_refueled = false;
+    public Transform boat_transform;
 
     public bool isPhone = false;
     public bool isMap = false;
@@ -242,7 +243,13 @@ public class PlayerScript : MonoBehaviour
                 {
                     boat_engine_refueled = true;
                     hitInfo.collider.gameObject.GetComponent<BoatScript>().Interact();
+                }
 
+                if (boat_engine_fixed == true)
+                {
+                    Objective6.SetActive(true);
+                    notification.Play();
+                    objectiveUI.SetBool("ObjectiveUpdate", true);
                 }
             }
 
@@ -288,18 +295,25 @@ public class PlayerScript : MonoBehaviour
                     }
                     
                 }
-            }
 
-            if (hitInfo.collider.CompareTag("boat"))
-            {
-                if (boat_engine_fixed == true && boat_engine_refueled == true)
+                if (boat_engine_refueled == true)
                 {
                     Objective6.SetActive(true);
-                    //objectiveUI.ResetTrigger("ActivateObj");
-                    //objectiveUI.SetTrigger("ActivateObj");
                     notification.Play();
                     objectiveUI.SetBool("ObjectiveUpdate", true);
-                    //enter boat code
+                }
+            }
+
+            if (hitInfo.collider.CompareTag("boat_engine"))
+            {
+                CrosshairActive();
+                crosshairStatus = true;
+                if (boat_engine_fixed == true && boat_engine_refueled == true && Input.GetKeyDown(KeyCode.E))
+                {
+                    hitInfo.collider.gameObject.GetComponent<BoatScript>().Interact();
+                    //boat_collider.SetActive(true);
+                    gameObject.transform.SetParent(boat_transform);
+                   //enter boat code
                 }
             }
         }
