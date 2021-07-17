@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+// Adding audio changing effects to the scene 
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
