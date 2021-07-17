@@ -58,7 +58,7 @@ How to Play?
 - Message
     - GOOD, I've got it from here, just get on the boat and It'll head off to where I am, See you in abit, I'll explain everything.
     
-Game Controls: 
+### Game Controls: 
 - W A S D
     - Up down left right
 - Space
@@ -71,47 +71,45 @@ Game Controls:
     - Interact with Object
     - Take out phone to see mysterious messages
     
-Technical Details: 
+### Technical Details: 
 - Platform: Windows 10/Mac OS
 - Recommended Specs: GPU with DX10 capabilities 
 - Input Methods: Keyboard
 - Game Resolution: 1920x1080 (Fixed) 
 - Game Sound Effects: by ZapSplat
 
-Limitations & Bugs: 
+### Limitations & Bugs: 
 - Resolution: THe game is currently limited to 1920x1080 Windows Resolution
 
-Functions: 
-Splashscreen:
+### Functions: 
+## Splashscreen:
 When the game is first loaded, you will see a splash screen fade in before fading out, introducing our game company, 42 studios, that developed LOST.
 
-Main Menu:
+## Main Menu:
 
 Players can access 4 different buttons: 
 
-Play - Starts the game with Level 1 by switching scenes
+##Play - Starts the game with Level 1 by switching scenes
 
-Options - Opens up to a menu for players to toggle background music as well as sound effects based on their personal preferences.
+## Options - Opens up to a menu for players to toggle background music as well as sound effects based on their personal preferences.
 How to Play - Players will be introduced to the different key controllers and a short description of how to play.
 
-Quit
-Closes the game
+## Quit - Closes the game
 
-Credits: 
-
-Textures: 
+### Credits: 
+## Textures: 
 Terrain - ADG Textures
 Model Assets taken from Google Images
 
-Sound Effects & Background Music by:
+## Sound Effects & Background Music by:
 ZapSlapt
 
-Sprites & Images used:
+## Sprites & Images used:
 Trees - DreamForest Tree
 Grass - GrassFlowers
 Sky - AllSkyFree
 Cursors - Pixel Cursors
 
-Special Thanks to Mr Elyas for readily replying to all of our questions! Thank you!!
+###Special Thanks to Mr Elyas for readily replying to all of our questions! Thank you!!
 
 
