@@ -7,6 +7,7 @@ Date Created: 16/07/21
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoatScript : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class BoatScript : MonoBehaviour
         IEnumerator fadeSound1 = AudioFadeOut.FadeOut(sound, 4f);
         StartCoroutine(fadeSound1);
         //StopCoroutine(fadeSound1);
+
+        Invoke("ChangeScene", 10.0f);
     }
 
     IEnumerator DoFadeIn()
@@ -36,7 +39,6 @@ public class BoatScript : MonoBehaviour
             yield return null;
         }
         yield return null;
-
     }
 
     public static class AudioFadeOut
@@ -59,4 +61,9 @@ public class BoatScript : MonoBehaviour
         }
 
     }
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 }
