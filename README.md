@@ -1,8 +1,8 @@
- **LOST Game Application**
+ ####LOST Game Application
 
-LOST! Is an Pc game created by us using Unity Game Engine. 
+###LOST! Is an Pc game created by us using Unity Game Engine. 
 
-How to Play? 
+###How to Play? 
 
 ## Quest 1: Escape!
 
