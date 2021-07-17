@@ -1,3 +1,9 @@
+/******************************************************************************
+Authors: Phil & Elicia
+Name of Class: MouseLook
+Description of Class: Changing of cursors for different objectives 
+Date Created: 15/07/21
+******************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,9 @@
+/******************************************************************************
+Authors: Phil & Elicia
+Name of Class: WaterMovement
+Description of Class: Allows animation of water
+Date Created: 15/07/21
+******************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

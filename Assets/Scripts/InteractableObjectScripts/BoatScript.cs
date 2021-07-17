@@ -1,3 +1,9 @@
+/******************************************************************************
+Authors: Phil & Elicia
+Name of Class: BoatScript
+Description of Class: Player can fix propeller on boat and escape island 
+Date Created: 16/07/21
+******************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

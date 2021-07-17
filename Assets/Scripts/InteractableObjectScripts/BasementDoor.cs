@@ -1,3 +1,9 @@
+/******************************************************************************
+Authors: Phil & Elicia
+Name of Class: BasementDoor
+Description of Class: Opens the door when player finds the key to the next scene
+Date Created: 13/07/21
+******************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

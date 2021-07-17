@@ -1,3 +1,9 @@
+/******************************************************************************
+Authors: Phil & Elicia
+Name of Class: HouseDoorScript
+Description of Class: Opens the door of the house to the next scene, Island
+Date Created: 12/07/21
+******************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

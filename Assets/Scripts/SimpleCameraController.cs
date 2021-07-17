@@ -1,4 +1,10 @@
-﻿#if ENABLE_INPUT_SYSTEM 
+﻿/******************************************************************************
+Authors: Phil & Elicia
+Name of Class: SimpleCameraController
+Description of Class: Controls the player's view
+Date Created: 12/07/21
+******************************************************************************/
+#if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
 
