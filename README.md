@@ -89,7 +89,7 @@ When the game is first loaded, you will see a splash screen fade in before fadin
 
 Players can access 4 different buttons: 
 
-##Play - Starts the game with Level 1 by switching scenes
+## Play - Starts the game with Level 1 by switching scenes
 
 ## Options - Opens up to a menu for players to toggle background music as well as sound effects based on their personal preferences.
 How to Play - Players will be introduced to the different key controllers and a short description of how to play.
